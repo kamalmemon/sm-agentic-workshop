@@ -1,0 +1,7 @@
+<div>
+    <h3 class="text-lg font-medium text-gray-900 mb-4">{{ title }}</h3>
+    <canvas id="{{ chart_id }}"></canvas>
+</div>
+<script>
+    createLineChart('{{ chart_id }}', {{ labels | tojson }}, {{ data | tojson }}, '{{ label }}');
+</script>

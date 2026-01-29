@@ -1,0 +1,25 @@
+<div class="bg-white rounded-lg shadow p-4">
+    <label for="campaign-select" class="block text-sm font-medium text-gray-700 mb-2">
+        Filter by Campaign
+    </label>
+    <select id="campaign-select" name="campaign_id"
+        class="block w-full md:w-64 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 py-2 px-3 border"
+        hx-get="/metrics/all" hx-target="#metrics-section" hx-swap="innerHTML"
+        hx-trigger="change" hx-include="this"
+        onchange="htmx.trigger(document.body, 'campaignChanged', {campaign_id: this.value})">
+        <option value="">All Campaigns</option>
+        {% for campaign in campaigns %}
+        <option value="{{ campaign.id }}" {% if campaign.id == selected_id %}selected{% endif %}>
+            {{ campaign.name }} ({{ campaign.status }})
+        </option>
+        {% endfor %}
+    </select>
+</div>
+<script>
+document.body.addEventListener('htmx:configRequest', function(evt) {
+    const select = document.getElementById('campaign-select');
+    if (select && select.value && !evt.detail.path.includes('campaign_id')) {
+        evt.detail.parameters['campaign_id'] = select.value;
+    }
+});
+</script>
