@@ -26,6 +26,18 @@ def health():
     return {"status": "ok"}
 
 
+# Register routers
+from src.routes.dashboard import router as dashboard_router
+from src.routes.metrics import router as metrics_router
+from src.routes.charts import router as charts_router
+from src.routes.filters import router as filters_router
+
+app.include_router(dashboard_router)
+app.include_router(metrics_router)
+app.include_router(charts_router)
+app.include_router(filters_router)
+
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("src.main:app", host="0.0.0.0", port=8000, reload=True)
