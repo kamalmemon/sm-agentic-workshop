@@ -10,8 +10,7 @@ cd sm-agentic-workshop
 make bootstrap
 make run
 ```
-
-Open http://localhost:8000
+Then open http://localhost:8000 in your browser.
 
 ## Commands
 
