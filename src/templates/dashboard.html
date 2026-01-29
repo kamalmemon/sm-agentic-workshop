@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="space-y-6">
+    <div id="filter-section" hx-get="/filters/campaign" hx-trigger="load" hx-swap="innerHTML">
+        Loading filters...
+    </div>
+
+    <div id="metrics-section"
+         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+         hx-get="/metrics/all"
+         hx-trigger="load, campaignChanged from:body"
+         hx-swap="innerHTML">
+        Loading metrics...
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div id="line-chart-section"
+             class="bg-white rounded-lg shadow p-6"
+             hx-get="/charts/impressions-over-time"
+             hx-trigger="load, campaignChanged from:body"
+             hx-swap="innerHTML">
+            Loading chart...
+        </div>
+        <div id="bar-chart-section"
+             class="bg-white rounded-lg shadow p-6"
+             hx-get="/charts/clicks-by-campaign"
+             hx-trigger="load, campaignChanged from:body"
+             hx-swap="innerHTML">
+            Loading chart...
+        </div>
+    </div>
+</div>
+{% endblock %}
