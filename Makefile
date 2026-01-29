@@ -9,7 +9,7 @@ help:
 	@echo "  make run       - Start dev server (PORT=8000 by default)"
 	@echo "  make run PORT=3000 - Start on custom port"
 	@echo "  make test      - Run test suite"
-	@echo "  make verify    - Run workshop setup verification"
+	@echo "  make verify    - Verify setup"
 	@echo "  make reset-db  - Reset database with fresh seed data"
 	@echo "  make clean     - Remove generated files"
 

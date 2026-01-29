@@ -6,7 +6,7 @@ FastAPI + htmx + Tailwind + SQLite dashboard for ad campaign analytics.
 - `make run` - start dev server (port 8000)
 - `make run PORT=3000` - start on custom port
 - `make test` - run tests
-- `make verify` - verify workshop setup
+- `make verify` - verify setup
 - `make reset-db` - reset database with fresh data
 
 ## Structure
