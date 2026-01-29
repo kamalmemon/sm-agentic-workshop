@@ -1,3 +1,6 @@
 {% for metric in metrics %}
-{% include "components/metric_card.html" with context %}
+{% set title = metric.title %}
+{% set value = metric.value %}
+{% set icon = metric.icon %}
+{% include "components/metric_card.html" %}
 {% endfor %}
