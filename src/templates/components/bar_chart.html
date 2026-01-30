@@ -1,6 +1,8 @@
 <div>
     <h3 class="text-lg font-medium text-gray-900 mb-4">{{ title }}</h3>
-    <canvas id="{{ chart_id }}"></canvas>
+    <div class="min-h-[300px]">
+        <canvas id="{{ chart_id }}"></canvas>
+    </div>
 </div>
 <script>
     createBarChart('{{ chart_id }}', {{ labels | tojson }}, {{ data | tojson }}, '{{ label }}');
