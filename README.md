@@ -2,6 +2,9 @@
 
 Marketing analytics dashboard for learning agentic coding with Claude Code.
 
+<img width="1278" height="728" alt="image" src="https://github.com/user-attachments/assets/1035b00b-407d-434e-b503-a61de9a19f79" />
+
+
 ## Quick Start
 
 ```bash
