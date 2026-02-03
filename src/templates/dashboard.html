@@ -16,18 +16,18 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div id="line-chart-section"
-             class="bg-white rounded-lg shadow p-6"
+             class="bg-white rounded-xl shadow-md p-6 border-t-4 border-finnish-lightblue"
              hx-get="/charts/impressions-over-time"
              hx-trigger="load, campaignChanged from:body"
              hx-swap="innerHTML">
-            Loading chart...
+            <div class="text-finnish-lightblue">Ladataan...</div>
         </div>
         <div id="bar-chart-section"
-             class="bg-white rounded-lg shadow p-6"
+             class="bg-white rounded-xl shadow-md p-6 border-t-4 border-finnish-blue"
              hx-get="/charts/clicks-by-campaign"
              hx-trigger="load, campaignChanged from:body"
              hx-swap="innerHTML">
-            Loading chart...
+            <div class="text-finnish-blue">Ladataan...</div>
         </div>
     </div>
 </div>

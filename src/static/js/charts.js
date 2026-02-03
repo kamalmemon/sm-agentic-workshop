@@ -1,3 +1,14 @@
+// Finnish-inspired color palette
+const finnishColors = {
+    blue: '#003580',
+    lightBlue: '#4A90D9',
+    ice: '#E8F4FC',
+    forest: '#1B4D3E',
+    aurora: '#5BC0BE',
+    berry: '#8B1E3F',
+    snow: '#F8FAFC'
+};
+
 window.createLineChart = function(canvasId, labels, data, label) {
     const ctx = document.getElementById(canvasId);
     if (!ctx) return;
@@ -10,16 +21,29 @@ window.createLineChart = function(canvasId, labels, data, label) {
             datasets: [{
                 label: label,
                 data: data,
-                borderColor: 'rgb(59, 130, 246)',
-                backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                borderColor: finnishColors.blue,
+                backgroundColor: 'rgba(0, 53, 128, 0.1)',
                 fill: true,
-                tension: 0.3
+                tension: 0.4,
+                borderWidth: 3,
+                pointBackgroundColor: finnishColors.blue,
+                pointBorderColor: finnishColors.snow,
+                pointBorderWidth: 2,
+                pointRadius: 4
             }]
         },
         options: {
             responsive: true,
             plugins: { legend: { display: false } },
-            scales: { y: { beginAtZero: true } }
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: { color: 'rgba(0, 53, 128, 0.1)' }
+                },
+                x: {
+                    grid: { display: false }
+                }
+            }
         }
     });
 };
@@ -37,18 +61,23 @@ window.createBarChart = function(canvasId, labels, data, label) {
                 label: label,
                 data: data,
                 backgroundColor: [
-                    'rgba(59, 130, 246, 0.8)',
-                    'rgba(16, 185, 129, 0.8)',
-                    'rgba(245, 158, 11, 0.8)',
-                    'rgba(239, 68, 68, 0.8)',
-                    'rgba(139, 92, 246, 0.8)'
-                ]
+                    finnishColors.blue,
+                    finnishColors.lightBlue,
+                    finnishColors.forest,
+                    finnishColors.aurora,
+                    finnishColors.berry
+                ],
+                borderRadius: 6
             }]
         },
         options: {
             responsive: true,
             indexAxis: 'y',
-            plugins: { legend: { display: false } }
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { grid: { color: 'rgba(0, 53, 128, 0.1)' } },
+                y: { grid: { display: false } }
+            }
         }
     });
 };
