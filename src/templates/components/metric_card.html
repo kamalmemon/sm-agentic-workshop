@@ -1,11 +1,12 @@
-<div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 border-l-4 border-finnish-blue">
-    <div class="flex items-center justify-between">
+<div class="bg-starwars-gray rounded-lg border border-starwars-steel hover:border-starwars-jedi transition-all duration-300 p-5 relative overflow-hidden group">
+    <div class="absolute inset-0 bg-gradient-to-r from-starwars-jedi/0 via-starwars-jedi/5 to-starwars-jedi/0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+    <div class="flex items-center justify-between relative z-10">
         <div>
-            <p class="text-sm font-medium text-finnish-lightblue uppercase tracking-wider">{{ title }}</p>
-            <p class="mt-1 text-3xl font-bold text-finnish-blue">{{ value }}</p>
+            <p class="text-xs font-galactic font-semibold text-starwars-jedi uppercase tracking-widest">{{ title }}</p>
+            <p class="mt-1 text-2xl font-starwars font-bold text-starwars-yellow">{{ value }}</p>
         </div>
-        <div class="p-3 bg-finnish-ice rounded-full">
-            <svg class="w-6 h-6 text-finnish-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="p-3 bg-starwars-space rounded-full border border-starwars-jedi/50">
+            <svg class="w-5 h-5 text-starwars-jedi" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {% if icon == "eye" %}
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>

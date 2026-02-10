@@ -1,12 +1,13 @@
-// Finnish-inspired color palette
-const finnishColors = {
-    blue: '#003580',
-    lightBlue: '#4A90D9',
-    ice: '#E8F4FC',
-    forest: '#1B4D3E',
-    aurora: '#5BC0BE',
-    berry: '#8B1E3F',
-    snow: '#F8FAFC'
+// Star Wars color palette
+const starwarsColors = {
+    yellow: '#FFE81F',
+    jedi: '#00BFFF',
+    blue: '#0080FF',
+    green: '#00FF00',
+    red: '#FF0000',
+    sith: '#8B0000',
+    space: '#1a1a2e',
+    steel: '#4a4a4a'
 };
 
 window.createLineChart = function(canvasId, labels, data, label) {
@@ -21,27 +22,32 @@ window.createLineChart = function(canvasId, labels, data, label) {
             datasets: [{
                 label: label,
                 data: data,
-                borderColor: finnishColors.blue,
-                backgroundColor: 'rgba(0, 53, 128, 0.1)',
+                borderColor: starwarsColors.jedi,
+                backgroundColor: 'rgba(0, 191, 255, 0.1)',
                 fill: true,
                 tension: 0.4,
                 borderWidth: 3,
-                pointBackgroundColor: finnishColors.blue,
-                pointBorderColor: finnishColors.snow,
+                pointBackgroundColor: starwarsColors.yellow,
+                pointBorderColor: starwarsColors.jedi,
                 pointBorderWidth: 2,
-                pointRadius: 4
+                pointRadius: 5,
+                pointHoverRadius: 8
             }]
         },
         options: {
             responsive: true,
-            plugins: { legend: { display: false } },
+            plugins: {
+                legend: { display: false }
+            },
             scales: {
                 y: {
                     beginAtZero: true,
-                    grid: { color: 'rgba(0, 53, 128, 0.1)' }
+                    grid: { color: 'rgba(0, 191, 255, 0.15)' },
+                    ticks: { color: starwarsColors.jedi }
                 },
                 x: {
-                    grid: { display: false }
+                    grid: { color: 'rgba(0, 191, 255, 0.1)' },
+                    ticks: { color: starwarsColors.jedi }
                 }
             }
         }
@@ -61,13 +67,15 @@ window.createBarChart = function(canvasId, labels, data, label) {
                 label: label,
                 data: data,
                 backgroundColor: [
-                    finnishColors.blue,
-                    finnishColors.lightBlue,
-                    finnishColors.forest,
-                    finnishColors.aurora,
-                    finnishColors.berry
+                    starwarsColors.jedi,
+                    starwarsColors.green,
+                    starwarsColors.yellow,
+                    starwarsColors.red,
+                    starwarsColors.blue
                 ],
-                borderRadius: 6
+                borderRadius: 4,
+                borderWidth: 1,
+                borderColor: 'rgba(255, 255, 255, 0.2)'
             }]
         },
         options: {
@@ -75,8 +83,14 @@ window.createBarChart = function(canvasId, labels, data, label) {
             indexAxis: 'y',
             plugins: { legend: { display: false } },
             scales: {
-                x: { grid: { color: 'rgba(0, 53, 128, 0.1)' } },
-                y: { grid: { display: false } }
+                x: {
+                    grid: { color: 'rgba(0, 191, 255, 0.15)' },
+                    ticks: { color: starwarsColors.jedi }
+                },
+                y: {
+                    grid: { display: false },
+                    ticks: { color: starwarsColors.yellow }
+                }
             }
         }
     });
