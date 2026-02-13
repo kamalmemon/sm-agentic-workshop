@@ -7,7 +7,7 @@
     </div>
 
     <div id="metrics-section"
-         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+         class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-4"
          hx-get="/metrics/all"
          hx-trigger="load, campaignChanged from:body"
          hx-swap="innerHTML">
@@ -16,18 +16,18 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div id="line-chart-section"
-             class="bg-white rounded-lg shadow p-6"
+             class="bg-starwars-gray rounded-lg border border-starwars-steel p-6 relative z-10"
              hx-get="/charts/impressions-over-time"
              hx-trigger="load, campaignChanged from:body"
              hx-swap="innerHTML">
-            Loading chart...
+            <div class="text-starwars-jedi font-galactic">Accessing holocron data...</div>
         </div>
         <div id="bar-chart-section"
-             class="bg-white rounded-lg shadow p-6"
+             class="bg-starwars-gray rounded-lg border border-starwars-steel p-6 relative z-10"
              hx-get="/charts/clicks-by-campaign"
              hx-trigger="load, campaignChanged from:body"
              hx-swap="innerHTML">
-            Loading chart...
+            <div class="text-starwars-jedi font-galactic">Accessing holocron data...</div>
         </div>
     </div>
 </div>

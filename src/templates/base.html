@@ -5,13 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Marketing Dashboard{% endblock %}</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        starwars: {
+                            black: '#0a0a0a',
+                            space: '#1a1a2e',
+                            yellow: '#FFE81F',
+                            red: '#FF0000',
+                            sith: '#8B0000',
+                            blue: '#0080FF',
+                            jedi: '#00BFFF',
+                            green: '#00FF00',
+                            gray: '#2d2d2d',
+                            steel: '#4a4a4a',
+                        }
+                    },
+                    fontFamily: {
+                        'starwars': ['Orbitron', 'sans-serif'],
+                        'galactic': ['Exo 2', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .stars {
+            background: linear-gradient(to bottom, #0a0a0a 0%, #1a1a2e 100%);
+            background-attachment: fixed;
+        }
+        .stars::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+                radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+                radial-gradient(1px 1px at 90px 40px, #ddd, transparent),
+                radial-gradient(2px 2px at 160px 120px, #fff, transparent),
+                radial-gradient(1px 1px at 230px 80px, #eee, transparent),
+                radial-gradient(2px 2px at 300px 150px, #fff, transparent),
+                radial-gradient(1px 1px at 350px 60px, #ddd, transparent),
+                radial-gradient(2px 2px at 420px 180px, #eee, transparent),
+                radial-gradient(1px 1px at 500px 100px, #fff, transparent),
+                radial-gradient(2px 2px at 580px 200px, #ddd, transparent);
+            background-repeat: repeat;
+            background-size: 600px 250px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.5;
+        }
+        .glow-yellow { text-shadow: 0 0 10px #FFE81F, 0 0 20px #FFE81F, 0 0 30px #FFE81F; }
+        .glow-blue { text-shadow: 0 0 10px #00BFFF, 0 0 20px #00BFFF; }
+        .glow-red { text-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000; }
+        .lightsaber-border { border-image: linear-gradient(to right, #00BFFF, #0080FF) 1; }
+    </style>
     <script src="https://unpkg.com/htmx.org@2.0.4"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="bg-gray-100 min-h-screen">
-    <nav class="bg-white shadow-sm border-b">
-        <div class="max-w-7xl mx-auto px-4 py-4">
-            <h1 class="text-xl font-bold text-gray-900">Marketing Analytics</h1>
+<body class="stars min-h-screen relative">
+    <nav class="bg-starwars-black border-b-2 border-starwars-yellow relative z-10">
+        <div class="max-w-7xl mx-auto px-4 py-5">
+            <div class="flex items-center space-x-4">
+                <svg class="w-10 h-10 text-starwars-yellow" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="12,2 15,9 22,9 16,14 18,22 12,17 6,22 8,14 2,9 9,9"/>
+                </svg>
+                <div>
+                    <h1 class="text-2xl font-starwars font-black text-starwars-yellow glow-yellow tracking-widest">GALACTIC ANALYTICS</h1>
+                    <p class="text-xs text-starwars-steel font-galactic tracking-wider">A long time ago in a data warehouse far, far away...</p>
+                </div>
+            </div>
         </div>
     </nav>
     <main class="max-w-7xl mx-auto px-4 py-8">

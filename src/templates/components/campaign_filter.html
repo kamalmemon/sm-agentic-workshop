@@ -1,9 +1,9 @@
-<div class="bg-white rounded-lg shadow p-4">
-    <label for="campaign-select" class="block text-sm font-medium text-gray-700 mb-2">
-        Filter by Campaign
+<div class="bg-starwars-gray rounded-lg border border-starwars-steel p-5">
+    <label for="campaign-select" class="block text-xs font-starwars font-bold text-starwars-yellow mb-3 uppercase tracking-widest">
+        Select Your Mission
     </label>
     <select id="campaign-select" name="campaign_id"
-        class="block w-full md:w-64 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 py-2 px-3 border"
+        class="block w-full md:w-80 rounded-lg border-2 border-starwars-steel bg-starwars-space text-starwars-jedi font-galactic py-3 px-4 focus:border-starwars-jedi focus:ring-starwars-jedi"
         hx-get="/metrics/all" hx-target="#metrics-section" hx-swap="innerHTML"
         hx-trigger="change" hx-include="this"
         onchange="htmx.trigger(document.body, 'campaignChanged', {campaign_id: this.value})">

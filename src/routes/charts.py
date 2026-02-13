@@ -7,30 +7,37 @@ router = APIRouter(prefix="/charts", tags=["charts"])
 
 
 @router.get("/impressions-over-time", response_class=HTMLResponse)
-def get_impressions_over_time(request: Request, campaign_id: int | None = Query(None)):
+def get_impressions_over_time(
+    request: Request,
+    campaign_id: int | None = Query(None),
+    days: int = Query(30, ge=7, le=90)
+):
     conn = get_db()
     cursor = conn.cursor()
 
     if campaign_id:
         cursor.execute("""
             SELECT date, SUM(impressions) as impressions FROM daily_metrics
-            WHERE campaign_id = ? GROUP BY date ORDER BY date LIMIT 30
-        """, (campaign_id,))
+            WHERE campaign_id = ? GROUP BY date ORDER BY date DESC LIMIT ?
+        """, (campaign_id, days))
     else:
         cursor.execute("""
             SELECT date, SUM(impressions) as impressions FROM daily_metrics
-            GROUP BY date ORDER BY date LIMIT 30
-        """)
+            GROUP BY date ORDER BY date DESC LIMIT ?
+        """, (days,))
 
     rows = cursor.fetchall()
     conn.close()
 
+    # Reverse to get chronological order
+    rows = list(reversed(rows))
     labels = [row["date"][5:] for row in rows]
     data = [row["impressions"] for row in rows]
 
     return templates.TemplateResponse("components/line_chart.html", {
         "request": request, "title": "Impressions Over Time",
-        "chart_id": "impressions-chart", "labels": labels, "data": data, "label": "Impressions"
+        "chart_id": "impressions-chart", "labels": labels, "data": data,
+        "label": "Impressions", "days": days, "show_filter": True
     })
 
 
